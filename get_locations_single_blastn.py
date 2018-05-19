@@ -59,12 +59,12 @@ for i in range(len(title_list1)-1):
                         if flag:
                             # not the first time meeting with "Identities", process the last one
                             if float(similarity)>=95:
-                                f_out.write(title_list1[i]+'\t'+title_list2[j]+'_'+str(len(seq2))+':'+'\t'+similarity+'\n')
+                                f_out.write(title_list1[i]+'\t'+title_list1[j]+'_'+str(len(seq2))+':'+'\t'+similarity+'\n')
                                 print i,j
                                 #if i==56 and j==1:
                                 #    pdb.set_trace()
                                 f_out.write(title_list1[i]+'\t'+str(len(seq1))+'\t'+loc_list[0][1]+'\t'+loc_list[-2][2]+'\n')
-                                f_out.write(title_list2[j]+'\t'+str(len(seq2))+'\t'+loc_list[1][1]+'\t'+loc_list[-1][2]+'\n')
+                                f_out.write(title_list1[j]+'\t'+str(len(seq2))+'\t'+loc_list[1][1]+'\t'+loc_list[-1][2]+'\n')
                                 f_out.write(align_dict[loc_list[0][0]]+'\n')
                                 f_out.write(align_dict[loc_list[1][0]]+'\n')
 
