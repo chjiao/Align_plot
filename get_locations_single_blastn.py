@@ -8,6 +8,7 @@ from itertools import groupby
 
 fa_file=sys.argv[1]
 out_file=sys.argv[2]
+simi = 90
 
 fa_dict1={}
 title_list1=[]
@@ -58,7 +59,7 @@ for i in range(len(title_list1)-1):
                     if m:
                         if flag:
                             # not the first time meeting with "Identities", process the last one
-                            if float(similarity)>=95:
+                            if float(similarity)>=simi:
                                 f_out.write(title_list1[i]+'\t'+title_list1[j]+'_'+str(len(seq2))+':'+'\t'+similarity+'\n')
                                 print i,j
                                 #if i==56 and j==1:
@@ -88,7 +89,7 @@ for i in range(len(title_list1)-1):
                             align_dict[lmap[0]]+=lmap[2]
 
         ## process the last alignment
-        if similarity and float(similarity)>=95:
+        if similarity and float(similarity)>=simi:
             f_out.write(title_list1[i]+'\t'+title_list1[j]+'_'+str(len(seq2))+':'+'\t'+similarity+'\n')
             f_out.write(title_list1[i]+'\t'+str(len(seq1))+'\t'+loc_list[0][1]+'\t'+loc_list[-2][2]+'\n')
             f_out.write(title_list1[j]+'\t'+str(len(seq2))+'\t'+loc_list[1][1]+'\t'+loc_list[-1][2]+'\n')
